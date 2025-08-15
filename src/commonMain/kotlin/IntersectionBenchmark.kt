@@ -40,7 +40,12 @@ open class IntersectionBenchmark {
     }
 
     @Benchmark
-    fun intersectBenchmark(bh: Blackhole) {
-        bh.consume(receiver intersect parameter)
+    fun intersect71822(bh: Blackhole) {
+        bh.consume(receiver intersect71822 parameter)
+    }
+
+    @Benchmark
+    fun intersectOpt(bh: Blackhole) {
+        bh.consume(receiver intersectOpt parameter)
     }
 }
