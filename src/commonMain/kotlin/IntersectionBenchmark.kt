@@ -33,7 +33,7 @@ open class IntersectionBenchmark {
         receiverArray.shuffle(random)
 
         val parameterArray = IntArray(parameterSize.toInt()) { Int.MAX_VALUE - it }
-        for (i in 0..(intersectionPercentage.toInt() / 100.0 * receiverSize.toInt()).toInt()) {
+        for (i in 0..<(intersectionPercentage.toInt() / 100.0 * receiverSize.toInt()).toInt()) {
             parameterArray[i] = receiverArray[i]
         }
         parameterArray.shuffle(random)
