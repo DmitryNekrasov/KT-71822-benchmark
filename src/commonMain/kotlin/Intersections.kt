@@ -28,10 +28,9 @@ infix fun <T> Iterable<T>.intersectOpt(other: Iterable<T>): Set<T> {
 }
 
 infix fun <T> Iterable<T>.intersectOpt(other: Collection<T>): Set<T> {
-    val otherCollection = other.convertToListIfNotCollection()
     val set = mutableSetOf<T>()
     for (e in this) {
-        if (otherCollection.contains(e)) {
+        if (other.contains(e)) {
             set.add(e)
         }
     }
