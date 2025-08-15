@@ -8,6 +8,7 @@ import kotlinx.benchmark.Param
 import kotlinx.benchmark.Scope
 import kotlinx.benchmark.Setup
 import kotlinx.benchmark.State
+import kotlin.math.min
 import kotlin.random.Random
 
 @State(Scope.Benchmark)
@@ -33,7 +34,8 @@ open class IntersectionBenchmark {
         receiverArray.shuffle(random)
 
         val parameterArray = IntArray(parameterSize.toInt()) { Int.MAX_VALUE - it }
-        for (i in 0..<(intersectionPercentage.toInt() / 100.0 * receiverSize.toInt()).toInt()) {
+        val limit = (intersectionPercentage.toInt() / 100.0 * min(receiverArray.size, parameterArray.size)).toInt()
+        for (i in 0..<limit) {
             parameterArray[i] = receiverArray[i]
         }
         parameterArray.shuffle(random)
