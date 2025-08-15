@@ -39,6 +39,7 @@ open class IntersectionBenchmark {
             parameterArray[i] = receiverArray[i]
         }
         parameterArray.shuffle(random)
+        receiverArray.shuffle(random)
 
         receiver = receiverArray.asIterable()
         parameter = parameterArray.asIterable()
