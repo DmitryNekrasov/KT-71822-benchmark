@@ -27,14 +27,17 @@ open class IntersectionBenchmark {
 
     @Setup
     fun generateArrays() {
+        val random = Random(0xcafebabe)
+
         val receiverArray = IntArray(receiverSize.toInt()) { it }
+        receiverArray.shuffle(random)
+
         val parameterArray = IntArray(parameterSize.toInt()) { Int.MAX_VALUE - it }
         for (i in 0..(intersectionPercentage.toInt() / 100.0 * receiverSize.toInt()).toInt()) {
             parameterArray[i] = receiverArray[i]
         }
-        val random = Random(0xcafebabe)
-        receiverArray.shuffle(random)
         parameterArray.shuffle(random)
+
         receiver = receiverArray.asIterable()
         parameter = parameterArray.asIterable()
     }
