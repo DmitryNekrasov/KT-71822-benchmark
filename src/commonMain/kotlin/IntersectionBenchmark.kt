@@ -13,10 +13,10 @@ import kotlin.random.Random
 @State(Scope.Benchmark)
 open class IntersectionBenchmark {
 
-    @Param("10", "1000")
+    @Param("100", "10000")
     lateinit var receiverSize: String
 
-    @Param("10", "1000")
+    @Param("100", "10000")
     lateinit var parameterSize: String
 
     @Param("0", "25", "75", "100")
