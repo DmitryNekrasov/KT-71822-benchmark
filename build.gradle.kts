@@ -6,8 +6,8 @@ plugins {
     id("org.jetbrains.kotlinx.benchmark") version "0.4.13"
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+group = "benchmark.intersection"
+version = "0.1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -15,9 +15,7 @@ repositories {
 
 kotlin {
     jvmToolchain(21)
-
     jvm()
-
     macosArm64()
     macosX64()
     linuxX64()
@@ -50,7 +48,13 @@ benchmark {
 
     configurations {
         named("main") {
-            advanced("jvmForks", 3)
+            advanced("jvmForks", 1)
+            iterations = 10
+            iterationTime = 1
+            iterationTimeUnit = "s"
+            warmups = 15
+            mode = "avgt"
+            outputTimeUnit = "ns"
         }
     }
 }
